@@ -85,51 +85,56 @@ let s:is_dark=(&background == 'dark')
 " setup palette dictionary
 let s:gb = {}
 
-" fill it with absolute colors
-let s:gb.dark0_hard  = ['#1d2021', 234]     " 29-32-33
-let s:gb.dark0       = ['#282828', 235]     " 40-40-40
-let s:gb.dark0_soft  = ['#32302f', 236]     " 50-48-47
-let s:gb.dark1       = ['#3c3836', 237]     " 60-56-54
-let s:gb.dark2       = ['#504945', 239]     " 80-73-69
-let s:gb.dark3       = ['#665c54', 241]     " 102-92-84
-let s:gb.dark4       = ['#7c6f64', 243]     " 124-111-100
-let s:gb.dark4_256   = ['#7c6f64', 243]     " 124-111-100
+" dark ladder
+let s:gb.dark0_hard  = ['#141520', 234]   " bg_popup
+let s:gb.dark0       = ['#1a1b26', 235]   " bg
+let s:gb.dark0_soft  = ['#1d1f2d', 236]   " bg_alt
+let s:gb.dark1       = ['#1d1f2d', 237]   " bg_alt
+let s:gb.dark2       = ['#202437', 239]   " bg_high
+let s:gb.dark3       = ['#1f253f', 241]   " bg_visual
+let s:gb.dark4       = ['#414868', 243]   " border
+let s:gb.dark4_256   = ['#414868', 243]   " border
 
-let s:gb.gray_245    = ['#928374', 245]     " 146-131-116
-let s:gb.gray_244    = ['#928374', 244]     " 146-131-116
+" gray ladder
+let s:gb.gray_245    = ['#4d526b', 245]   " comment
+let s:gb.gray_244    = ['#484b5c', 244]   " line_nr
 
-let s:gb.light0_hard = ['#f9f5d7', 230]     " 249-245-215
-let s:gb.light0      = ['#fbf1c7', 229]     " 253-244-193
-let s:gb.light0_soft = ['#f2e5bc', 228]     " 242-229-188
-let s:gb.light1      = ['#ebdbb2', 223]     " 235-219-178
-let s:gb.light2      = ['#d5c4a1', 250]     " 213-196-161
-let s:gb.light3      = ['#bdae93', 248]     " 189-174-147
-let s:gb.light4      = ['#a89984', 246]     " 168-153-132
-let s:gb.light4_256  = ['#a89984', 246]     " 168-153-132
+" light / foreground ladder
+let s:gb.light0_hard = ['#ffffff', 230]   " white
+let s:gb.light0      = ['#c0caf5', 229]   " fg
+let s:gb.light0_soft = ['#a9b1d6', 228]   " fg_alt
+let s:gb.light1      = ['#c0caf5', 223]   " fg
+let s:gb.light2      = ['#a9b1d6', 250]   " fg_alt
+let s:gb.light3      = ['#484b5c', 248]   " line_nr
+let s:gb.light4      = ['#4d526b', 246]   " comment
+let s:gb.light4_256  = ['#4d526b', 246]   " comment
 
-let s:gb.bright_red     = ['#fb4934', 167]     " 251-73-52
-let s:gb.bright_green   = ['#b8bb26', 142]     " 184-187-38
-let s:gb.bright_yellow  = ['#fabd2f', 214]     " 250-189-47
-let s:gb.bright_blue    = ['#83a598', 109]     " 131-165-152
-let s:gb.bright_purple  = ['#d3869b', 175]     " 211-134-155
-let s:gb.bright_aqua    = ['#8ec07c', 108]     " 142-192-124
-let s:gb.bright_orange  = ['#fe8019', 208]     " 254-128-25
+" bright accents
+let s:gb.bright_red     = ['#f7768e', 167]   " red
+let s:gb.bright_green   = ['#9ece6a', 142]   " green
+let s:gb.bright_yellow  = ['#e0af68', 214]   " yellow2
+let s:gb.bright_blue    = ['#7aa2f7', 109]   " blue
+let s:gb.bright_purple  = ['#bb9af7', 175]   " purple
+let s:gb.bright_aqua    = ['#7dcfff', 108]   " cyan
+let s:gb.bright_orange  = ['#e08f68', 208]   " orange
 
-let s:gb.neutral_red    = ['#cc241d', 124]     " 204-36-29
-let s:gb.neutral_green  = ['#98971a', 106]     " 152-151-26
-let s:gb.neutral_yellow = ['#d79921', 172]     " 215-153-33
-let s:gb.neutral_blue   = ['#458588', 66]      " 69-133-136
-let s:gb.neutral_purple = ['#b16286', 132]     " 177-98-134
-let s:gb.neutral_aqua   = ['#689d6a', 72]      " 104-157-106
-let s:gb.neutral_orange = ['#d65d0e', 166]     " 214-93-14
+" neutral accents
+let s:gb.neutral_red    = ['#f7768e', 124]   " red
+let s:gb.neutral_green  = ['#9ece6a', 106]   " green
+let s:gb.neutral_yellow = ['#dec76e', 172]   " yellow
+let s:gb.neutral_blue   = ['#7aa2f7', 66]    " blue
+let s:gb.neutral_purple = ['#bb9af7', 132]   " purple
+let s:gb.neutral_aqua   = ['#7dcfff', 72]    " cyan
+let s:gb.neutral_orange = ['#e08f68', 166]   " orange
 
-let s:gb.faded_red      = ['#9d0006', 88]      " 157-0-6
-let s:gb.faded_green    = ['#79740e', 100]     " 121-116-14
-let s:gb.faded_yellow   = ['#b57614', 136]     " 181-118-20
-let s:gb.faded_blue     = ['#076678', 24]      " 7-102-120
-let s:gb.faded_purple   = ['#8f3f71', 96]      " 143-63-113
-let s:gb.faded_aqua     = ['#427b58', 66]      " 66-123-88
-let s:gb.faded_orange   = ['#af3a03', 130]     " 175-58-3
+" faded accents
+let s:gb.faded_red      = ['#f44747', 88]    " red_err
+let s:gb.faded_green    = ['#9ece6a', 100]   " green
+let s:gb.faded_yellow   = ['#d79a42', 136]   " warning
+let s:gb.faded_blue     = ['#7aa2f7', 24]    " blue
+let s:gb.faded_purple   = ['#bb9af7', 96]    " purple
+let s:gb.faded_aqua     = ['#7dcfff', 66]    " cyan
+let s:gb.faded_orange   = ['#e08f68', 130]   " orange
 
 " }}}
 " Setup Emphasis: {{{
