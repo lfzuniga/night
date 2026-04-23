@@ -503,7 +503,7 @@ if version >= 703
   call s:HL('Conceal', s:blue, s:none)
 
   " Line number of CursorLine
-  call s:HL('CursorLineNr', s:fg2, s:bg1)
+  call s:HL('CursorLineNr', s:fg0, s:bg1)
 endif
 
 hi! link NonText NightBg2
