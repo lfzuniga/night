@@ -503,7 +503,7 @@ if version >= 703
   call s:HL('Conceal', s:blue, s:none)
 
   " Line number of CursorLine
-  call s:HL('CursorLineNr', s:fg4, s:bg1)
+  call s:HL('CursorLineNr', s:fg2, s:bg1)
 endif
 
 hi! link NonText NightBg2
@@ -547,7 +547,7 @@ hi! link WarningMsg NightRedBold
 " Gutter: {{{
 
 " Line number for :number and :# commands
-call s:HL('LineNr', s:bg4, s:number_column)
+call s:HL('LineNr', s:fg3, s:number_column)
 
 " Column where signs are displayed
 call s:HL('SignColumn', s:none, s:sign_column)
