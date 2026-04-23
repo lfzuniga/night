@@ -466,8 +466,8 @@ call s:HL('NightOrangeSign', s:orange, s:sign_column, s:invert_signs)
 " Vanilla colorscheme ---------------------------------------------------------
 " General UI: {{{
 
+call s:HL('Normal', s:fg0, s:bg0)
 " Normal text
-call s:HL('Normal', s:fg1, s:bg0)
 
 " Correct background (see issue #7):
 " --- Problem with changing between dark and light on 256 color terminal
@@ -503,7 +503,7 @@ if version >= 703
   call s:HL('Conceal', s:blue, s:none)
 
   " Line number of CursorLine
-  call s:HL('CursorLineNr', s:yellow, s:bg1)
+  call s:HL('CursorLineNr', s:fg4, s:bg1)
 endif
 
 hi! link NonText NightBg2
@@ -521,7 +521,7 @@ call s:HL('StatusLine',   s:bg2, s:fg1, s:inverse)
 call s:HL('StatusLineNC', s:bg1, s:fg4, s:inverse)
 
 " The column separating vertically split windows
-call s:HL('VertSplit', s:bg3, s:vert_split)
+call s:HL('VertSplit', s:bg3, s:bg0)
 
 " Current match in wildmenu completion
 call s:HL('WildMenu', s:blue, s:bg2, s:bold)
@@ -583,40 +583,40 @@ call s:HL('Todo', s:vim_fg, s:vim_bg, s:bold . s:italic)
 call s:HL('Error', s:red, s:vim_bg, s:bold . s:inverse)
 
 " Generic statement
-hi! link Statement NightRed
+hi! link Statement NightPurple
 " if, then, else, endif, swicth, etc.
-hi! link Conditional NightRed
+hi! link Conditional NightPurple
 " for, do, while, etc.
-hi! link Repeat NightRed
+hi! link Repeat NightPurple
 " case, default, etc.
 hi! link Label NightRed
 " try, catch, throw
 hi! link Exception NightRed
 " sizeof, "+", "*", etc.
-hi! link Operator Normal
+hi! link Operator NightAqua
 " Any other keyword
-hi! link Keyword NightRed
+hi! link Keyword NightPurple
 
 " Variable name
-hi! link Identifier NightBlue
+hi! link Identifier NightFg1
 " Function name
-hi! link Function NightGreenBold
+hi! link Function NightBlue
 
 " Generic preprocessor
-hi! link PreProc NightAqua
+hi! link PreProc NightRed
 " Preprocessor #include
-hi! link Include NightAqua
+hi! link Include NightPurple
 " Preprocessor #define
-hi! link Define NightAqua
+hi! link Define NightPurple
 " Same as Define
-hi! link Macro NightAqua
+hi! link Macro NightPurple
 " Preprocessor #if, #else, #endif, etc.
-hi! link PreCondit NightAqua
+hi! link PreCondit NightPurple
 
 " Generic constant
-hi! link Constant NightPurple
+hi! link Constant NightAqua
 " Character constant: 'c', '/n'
-hi! link Character NightPurple
+hi! link Character NightAqua
 " String constant: "this is a string"
 if g:night_improved_strings == 0
   call s:HL('String',  s:green, s:none, s:italicize_strings)
@@ -624,18 +624,18 @@ else
   call s:HL('String',  s:fg1, s:bg1, s:italicize_strings)
 endif
 " Boolean constant: TRUE, false
-hi! link Boolean NightPurple
+hi! link Boolean NightOrange
 " Number constant: 234, 0xff
-hi! link Number NightPurple
+hi! link Number NightOrange
 " Floating point constant: 2.3e10
-hi! link Float NightPurple
+hi! link Float NightOrange
 
 " Generic type
-hi! link Type NightYellow
+hi! link Type NightRed
 " static, register, volatile, etc
 hi! link StorageClass NightOrange
 " struct, union, enum, etc.
-hi! link Structure NightAqua
+hi! link Structure NightRed
 " typedef
 hi! link Typedef NightYellow
 
